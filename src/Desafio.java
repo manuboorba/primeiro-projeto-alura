@@ -21,7 +21,7 @@ public class Desafio {
             operacao = leituraOperacao.nextInt();
 
             if (operacao == 1){
-                System.out.println(saldo);
+                System.out.println("O saldo é: " + saldo);
             } else if (operacao == 2) {
                 System.out.println("Qual valor deseja receber?");
                 valor = leituraDouble.nextDouble();
@@ -30,13 +30,16 @@ public class Desafio {
             } else if (operacao == 3 && saldo > valor) {
                 System.out.println("Qual valor deseja transferir?");
                 valor = leituraDouble.nextDouble();
-                saldo -= valor;
-                System.out.println("Agora seu saldo é: " + saldo);
-            } else if (operacao == 3 && saldo < valor) {
-                System.out.println("Saldo insuficiente!");
+                if (valor > saldo) {
+                    System.out.println("Saldo insuficiente!");
+                } else {
+                    saldo -= valor;
+                    System.out.println("Seu novo saldo é: " + saldo);
+                }
+
             } else if (operacao == 4) {
                 System.out.println("Programa encerrado");
-            } else {
+            } else if (operacao != 4){
                 System.out.println("Opção inválida!");
             }
 
